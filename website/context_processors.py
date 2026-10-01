@@ -1,14 +1,9 @@
 from urllib.parse import quote
-from .models import ClinicInfo
+from .data import CLINIC_INFO
 
 def whatsapp_link(request):
-    try:
-        clinic = ClinicInfo.load()
-        number = clinic.whatsapp_number
-    except:
-        number = '923398770001'
-
+    number = CLINIC_INFO.whatsapp_number
     message = 'Assalam-o-Alaikum, mujhe Dr. Muhammad Hassan Tariq se appointment chahiye'
     encoded_message = quote(message)
     link = f'https://wa.me/{number}?text={encoded_message}'
-    return {'whatsapp_link': link, 'clinic_info': clinic if 'clinic' in locals() else None}
+    return {'whatsapp_link': link, 'clinic_info': CLINIC_INFO}
