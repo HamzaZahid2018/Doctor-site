@@ -1,0 +1,90 @@
+{% extends 'website/base.html' %}
+
+{% block title %}{{ service.title }} - Dr. Muhammad Hassan Tariq{% endblock %}
+{% block meta_description %}{{ service.short_description }}{% endblock %}
+
+{% block extra_css %}
+<style>
+    .page-header {
+        background-color: var(--light-blue);
+        color: var(--dark-navy);
+        padding: 40px 5%;
+        text-align: center;
+        border-bottom: 1px solid #D1E4F5;
+    }
+    .page-header h1 {
+        font-size: 2.5rem;
+        color: var(--dark-blue);
+        margin-bottom: 10px;
+    }
+    .page-header p {
+        color: var(--dark-navy);
+        font-size: 1.1rem;
+    }
+
+    .service-content {
+        max-width: 800px;
+        margin: 60px auto;
+        padding: 0 5%;
+        background-color: var(--white);
+        padding: 50px;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    }
+    .service-content i {
+        font-size: 3rem;
+        color: var(--primary-blue);
+        margin-bottom: 20px;
+        display: block;
+        text-align: center;
+    }
+    .service-content .category-label {
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--text-gray);
+        letter-spacing: 1px;
+        margin-bottom: 30px;
+    }
+    .service-content h2 {
+        color: var(--dark-navy);
+        font-size: 2rem;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    .service-content p {
+        font-size: 1.1rem;
+        color: var(--text-gray);
+        line-height: 1.8;
+        margin-bottom: 30px;
+    }
+    .cta-container {
+        text-align: center;
+        margin-top: 40px;
+        padding-top: 30px;
+        border-top: 1px solid var(--gray);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Service Details</h1>
+    <p>Learn more about this condition and how I can help</p>
+</div>
+
+<div class="service-content">
+    <i class="fas {{ service.icon_name }}"></i>
+    <div class="category-label">{{ service.get_category_display }}</div>
+    <h2>{{ service.title }}</h2>
+    <p>{{ service.full_description }}</p>
+
+    <div class="cta-container">
+        <p style="font-weight: 600; margin-bottom: 15px; color: var(--dark-blue);">Want to discuss {{ service.title }}? Message me on WhatsApp.</p>
+        <a href="{{ whatsapp_link }}" target="_blank" class="btn btn-primary btn-wa" style="display: inline-flex; font-size: 1.1rem; padding: 12px 30px;">
+            <i class="fab fa-whatsapp"></i> Book Appointment on WhatsApp
+        </a>
+    </div>
+</div>
+{% endblock %}

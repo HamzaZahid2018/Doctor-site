@@ -1,0 +1,592 @@
+{% extends 'website/base.html' %}
+{% load static %}
+
+{% block title %}Home - Dr. Muhammad Hassan Tariq{% endblock %}
+{% block meta_description %}Dr. Muhammad Hassan Tariq offers specialized care in male reproductive health and pediatrics in Rahim Yar Khan.{% endblock %}
+{% block og_title %}Home - Dr. Muhammad Hassan Tariq{% endblock %}
+{% block og_description %}Dr. Muhammad Hassan Tariq offers specialized care in male reproductive health and pediatrics in Rahim Yar Khan.{% endblock %}
+
+{% block extra_css %}
+<style>
+    /* Global Section Settings */
+    section {
+        padding: 80px 5%;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+        display: flex;
+        align-items: center;
+        gap: 50px;
+        background-color: var(--white);
+        max-width: 1300px;
+        margin: 0 auto;
+        position: relative;
+    }
+    .hero-content {
+        flex: 1.2;
+    }
+    .hero-badge {
+        display: inline-block;
+        background-color: var(--light-blue);
+        color: var(--dark-navy);
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin-bottom: 25px;
+    }
+    .hero h1 {
+        font-size: clamp(2.2rem, 5vw, 3.5rem);
+        color: var(--dark-navy);
+        line-height: 1.1;
+        margin-bottom: 10px;
+        font-weight: 800;
+        text-wrap: balance;
+    }
+    .hero h2 {
+        font-size: 1.8rem;
+        color: var(--primary-blue);
+        font-weight: 600;
+        margin-bottom: 20px;
+    }
+    .hero p {
+        font-size: 1.1rem;
+        color: var(--dark-navy);
+        margin-bottom: 35px;
+        max-width: 600px;
+    }
+
+    .hero-btn-container {
+        margin-bottom: 35px;
+    }
+
+    .trust-badges {
+        display: flex;
+        gap: 25px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    .trust-badge {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.95rem;
+        color: var(--dark-navy);
+        font-weight: 600;
+    }
+    .trust-badge i {
+        color: var(--primary-blue);
+        font-size: 1.3rem;
+    }
+
+    .hero-image-wrapper {
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+    }
+    .hero-image-wrapper img {
+        width: 95%;
+        max-width: 480px;
+        max-height: 460px;
+        aspect-ratio: 4 / 5;
+        object-fit: cover;
+        object-position: center 15%;
+        border-radius: 20px;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        display: block;
+    }
+
+    /* ─── SERVICES ─── */
+    .services-section {
+        background-color: var(--light-blue);
+        text-align: center;
+    }
+    .services-section h2 {
+        font-size: 2.8rem;
+        color: var(--dark-navy);
+        margin-bottom: 10px;
+    }
+    .services-section .subheading {
+        color: var(--dark-navy);
+        font-size: 1.1rem;
+        margin-bottom: 50px;
+    }
+    .service-cards {
+        display: flex;
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-items: stretch;
+    }
+    .service-card {
+        background-color: var(--white);
+        padding: 40px 30px 30px;
+        border-radius: 15px;
+        text-align: left;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        flex: 1;
+        min-width: 280px;
+        display: flex;
+        flex-direction: column;
+    }
+    .service-card .icon-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+    .service-card .icon {
+        width: 60px;
+        height: 60px;
+        min-width: 60px;
+        background-color: var(--light-blue);
+        color: var(--primary-blue);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 24px;
+    }
+    .service-card h3 {
+        font-size: 1.3rem;
+        color: var(--dark-navy);
+        line-height: 1.3;
+        flex: 1;
+    }
+    .service-card .conditions-list {
+        list-style: none;
+        margin-bottom: 0;
+        flex-grow: 1;
+        padding-bottom: 10px;
+    }
+    .service-card .conditions-list li {
+        color: var(--dark-navy);
+        font-size: 0.9rem;
+        padding: 5px 0;
+        border-bottom: 1px solid #f0f5fa;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    .service-card .conditions-list li:last-child {
+        border-bottom: none;
+    }
+    .service-card .conditions-list li::before {
+        content: '';
+        width: 6px;
+        height: 6px;
+        min-width: 6px;
+        background-color: var(--primary-blue);
+        border-radius: 50%;
+    }
+
+
+    /* ─── HOW IT WORKS ─── */
+    .how-it-works {
+        background-color: var(--white);
+        text-align: center;
+    }
+    .how-it-works h2 {
+        font-size: 2.4rem;
+        color: var(--dark-navy);
+        margin-bottom: 50px;
+    }
+    .steps-row {
+        display: flex;
+        gap: 40px;
+        max-width: 1000px;
+        margin: 0 auto;
+        justify-content: center;
+    }
+    .step-item {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
+    .step-number {
+        width: 56px;
+        height: 56px;
+        background-color: var(--primary-blue);
+        color: var(--white);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5rem;
+        font-weight: 800;
+        flex-shrink: 0;
+    }
+    .step-item p {
+        font-size: 1.05rem;
+        color: var(--dark-navy);
+        font-weight: 600;
+        line-height: 1.4;
+        max-width: 220px;
+    }
+
+    /* ─── INFO SECTION (Timings + Why Choose) ─── */
+    .info-section {
+        background-color: var(--white);
+        display: flex;
+        gap: 60px;
+        max-width: 1200px;
+        margin: 0 auto;
+        align-items: stretch;
+    }
+    .info-card-col, .why-choose-col {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .info-section h3 {
+        font-size: 2.2rem;
+        color: var(--dark-navy);
+        margin-bottom: 30px;
+    }
+
+    /* Timings Card */
+    .timings-card {
+        background-color: #F8FBFE;
+        border: 1px solid #D1E4F5;
+        border-radius: 15px;
+        padding: 30px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+    }
+    .timings-list {
+        list-style: none;
+        margin-bottom: 25px;
+        flex-grow: 1;
+    }
+    .timings-list li {
+        display: flex;
+        gap: 15px;
+        align-items: flex-start;
+        margin-bottom: 20px;
+        color: var(--dark-navy);
+        font-weight: 500;
+    }
+    .timings-list li i {
+        color: var(--primary-blue);
+        font-size: 1.2rem;
+        margin-top: 3px;
+    }
+
+
+    /* Why Choose Me */
+    .why-choose-card {
+        background-color: #F8FBFE;
+        border: 1px solid #D1E4F5;
+        border-radius: 15px;
+        padding: 30px;
+        flex-grow: 1;
+    }
+    .why-choose-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
+    .why-choose-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+    }
+    .why-choose-list li i {
+        color: var(--primary-blue);
+        font-size: 1.4rem;
+        flex-shrink: 0;
+        margin-top: 2px;
+    }
+    .why-choose-list li p {
+        color: var(--dark-navy);
+        font-weight: 600;
+        font-size: 1.1rem;
+        margin: 0;
+        line-height: 1.5;
+    }
+
+    /* ─── MOBILE ─── */
+    @media (max-width: 768px) {
+        section {
+            padding: 50px 4%;
+        }
+
+        /* Hero */
+        .hero {
+            flex-direction: column;
+            text-align: center;
+            gap: 30px;
+        }
+        .hero-content {
+            flex: unset;
+            width: 100%;
+        }
+        .hero-badge {
+            margin: 0 auto 20px auto;
+            font-size: 0.8rem;
+            padding: 6px 12px;
+        }
+        .hero h1 {
+            font-size: clamp(1.8rem, 8vw, 3rem);
+        }
+        .hero h2 {
+            font-size: clamp(1.1rem, 5vw, 1.6rem);
+            text-wrap: balance;
+        }
+        .hero p {
+            margin: 0 auto 25px auto;
+            font-size: 0.95rem;
+        }
+        .hero-btn-container .btn {
+            padding: 12px 24px !important;
+            font-size: 1rem !important;
+        }
+        .trust-badges {
+            justify-content: center;
+            gap: 10px;
+        }
+        .trust-badge {
+            font-size: 0.85rem;
+        }
+        .hero-image-wrapper {
+            flex: unset;
+            width: 80%;
+            max-width: 300px;
+            margin: 0 auto;
+            justify-content: center;
+        }
+        .hero-image-wrapper img {
+            width: 100%;
+            max-width: 100%;
+            max-height: 380px;
+            object-position: center 15%;
+        }
+
+        /* Services */
+        .services-section h2 {
+            font-size: clamp(1.8rem, 8vw, 2.8rem);
+            text-wrap: balance;
+        }
+        .services-section .subheading {
+            font-size: 0.95rem;
+            margin-bottom: 30px;
+        }
+        .service-cards {
+            gap: 20px;
+        }
+        .service-card {
+            min-width: 100%;
+            padding: 25px 20px 20px;
+        }
+        .service-card .icon {
+            width: 48px;
+            height: 48px;
+            min-width: 48px;
+            font-size: 20px;
+        }
+        .service-card h3 {
+            font-size: 1.1rem;
+        }
+
+
+
+        /* How It Works */
+        .how-it-works h2 {
+            font-size: clamp(1.6rem, 7vw, 2.4rem);
+            margin-bottom: 35px;
+        }
+        .steps-row {
+            flex-direction: column;
+            gap: 30px;
+            align-items: center;
+        }
+        .step-item {
+            flex-direction: row;
+            text-align: left;
+            max-width: 320px;
+            width: 100%;
+        }
+        .step-item p {
+            max-width: none;
+        }
+
+        /* Info section */
+        .info-section {
+            flex-direction: column;
+            gap: 40px;
+        }
+        .info-section h3 {
+            font-size: clamp(1.5rem, 7vw, 2.2rem);
+            text-wrap: balance;
+        }
+        .timings-card {
+            padding: 20px;
+        }
+
+        .why-choose-card {
+            padding: 20px;
+        }
+        .why-choose-list li p {
+            font-size: 0.95rem;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content">
+        <div class="hero-badge">Board-Certified &bull; Male Reproductive Health & Pediatrics</div>
+        <h1>Dr. Muhammad Hassan Tariq</h1>
+        <h2>Male Infertility and Childlessness</h2>
+        <p>I treat male fertility problems, hormonal issues, diabetes, and children's health. Message me on WhatsApp and I will guide you about the right treatment.</p>
+
+        <div class="hero-btn-container">
+            <a href="{{ whatsapp_link }}" target="_blank" class="btn btn-primary" style="padding: 15px 35px; font-size: 1.1rem;">
+                Book Appointment
+            </a>
+        </div>
+
+        <div class="trust-badges">
+            <div class="trust-badge">
+                <i class="fas fa-check-circle"></i>
+                <span>Private & Respectful</span>
+            </div>
+            <div class="trust-badge">
+                <i class="fas fa-check-circle"></i>
+                <span>Proper Diagnosis & Treatment</span>
+            </div>
+            <div class="trust-badge">
+                <i class="fas fa-check-circle"></i>
+                <span>Care for the Whole Family</span>
+            </div>
+        </div>
+    </div>
+    <div class="hero-image-wrapper">
+        <img src="{% static 'website/images/1.jpeg' %}" alt="Dr. Muhammad Hassan Tariq">
+    </div>
+</section>
+
+<!-- Services Overview Section -->
+<section id="services" class="services-section">
+    <h2>My Services</h2>
+    <p class="subheading">Select your health concern below</p>
+
+    <div class="service-cards">
+        <div class="service-card">
+            <div class="icon-wrapper">
+                <div class="icon"><i class="fas fa-mars"></i></div>
+                <h3>Male Infertility Evaluation</h3>
+            </div>
+            <ul class="conditions-list">
+                <li>Varicocele</li>
+                <li>Hydrocele</li>
+                <li>Azoospermia</li>
+                <li>Low or Absent Sperm Count</li>
+                <li>Male Hormonal Deficiency</li>
+                <li>Premature Ejaculation</li>
+                <li>Delayed Puberty</li>
+                <li>Male Weakness</li>
+                <li>Obesity-related fertility issues</li>
+            </ul>
+        </div>
+        <div class="service-card">
+            <div class="icon-wrapper">
+                <div class="icon"><i class="fas fa-baby"></i></div>
+                <h3>Pediatric Health & Care</h3>
+            </div>
+            <ul class="conditions-list">
+                <li>Fever</li>
+                <li>Cold, Flu & Cough</li>
+                <li>Allergies</li>
+                <li>Asthma</li>
+                <li>Nutritional Deficiency</li>
+                <li>Delayed Growth & Development</li>
+            </ul>
+        </div>
+        <div class="service-card">
+            <div class="icon-wrapper">
+                <div class="icon"><i class="fas fa-heartbeat"></i></div>
+                <h3>Diabetes & Hormonal Health</h3>
+            </div>
+            <ul class="conditions-list">
+                <li>Diabetes Management</li>
+                <li>Reduced Sexual Desire due to Diabetes</li>
+                <li>ADA-certified diabetes care</li>
+                <li>Hormonal imbalance & endocrine support</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works -->
+<section class="how-it-works">
+    <h2>How It Works</h2>
+    <div class="steps-row">
+        <div class="step-item">
+            <div class="step-number">1</div>
+            <p>Message me on WhatsApp</p>
+        </div>
+        <div class="step-item">
+            <div class="step-number">2</div>
+            <p>Share your health concern</p>
+        </div>
+        <div class="step-item">
+            <div class="step-number">3</div>
+            <p>Get guidance and treatment</p>
+        </div>
+    </div>
+</section>
+
+<!-- Info Section -->
+<section id="appointment-timings" class="info-section">
+    <div class="info-card-col">
+        <h3>Appointment Timings</h3>
+        <div class="timings-card">
+            <ul class="timings-list">
+                <li>
+                    <i class="far fa-calendar-alt"></i>
+                    <div>
+                        {{ clinic_info.timings_weekdays|default:"Monday to Saturday: 9:00 AM to 6:00 PM" }}
+                    </div>
+                </li>
+                <li>
+                    <i class="far fa-clock"></i>
+                    <div>
+                        {{ clinic_info.timings_sunday|default:"Sunday: Closed" }}
+                    </div>
+                </li>
+                <li style="margin-top: 10px;">
+                    <div>Book an appointment or walk in during my hours.</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="why-choose-col">
+        <h3>Why Choose Me?</h3>
+        <div class="why-choose-card">
+            <ul class="why-choose-list">
+                <li>
+                    <i class="fas fa-check-circle"></i>
+                    <p>I treat both male fertility and children's health</p>
+                </li>
+                <li>
+                    <i class="fas fa-check-circle"></i>
+                    <p>Your information stays private, and you are treated with respect</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

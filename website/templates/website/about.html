@@ -1,0 +1,229 @@
+{% extends 'website/base.html' %}
+{% load static %}
+
+{% block title %}About Dr. Muhammad Hassan Tariq{% endblock %}
+{% block meta_description %}Learn about Dr. Muhammad Hassan Tariq, a board-certified specialist in male reproductive health and pediatrics.{% endblock %}
+{% block og_title %}About Dr. Muhammad Hassan Tariq{% endblock %}
+{% block og_description %}Learn about Dr. Muhammad Hassan Tariq, a board-certified specialist in male reproductive health and pediatrics.{% endblock %}
+
+{% block extra_css %}
+<style>
+    /* ---------- BANNER ---------- */
+    .page-header {
+        background-color: var(--light-blue);
+        color: var(--dark-navy);
+        padding: 40px 5%;
+        text-align: left;
+        border-bottom: 1px solid #D1E4F5;
+    }
+    .page-header-inner {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+    .page-header h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--dark-blue);
+        margin-bottom: 10px;
+    }
+    .page-header p {
+        color: var(--dark-navy);
+        font-size: 1.1rem;
+    }
+
+    /* ---------- INTRO SECTION (photo + text) ---------- */
+    .about-section {
+        max-width: 1000px;
+        margin: 60px auto;
+        padding: 0 5%;
+        display: flex;
+        gap: 50px;
+        align-items: flex-start;
+    }
+
+    .about-image {
+        flex: 0 0 320px;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    .about-image img {
+        width: 100%;
+        display: block;
+    }
+
+    .about-content {
+        flex: 1;
+    }
+    .about-content h2 {
+        color: var(--dark-navy);
+        font-size: clamp(1.6rem, 4vw, 2.2rem);
+        margin-bottom: 20px;
+        margin-top: 0;
+        text-wrap: balance;
+        white-space: nowrap;
+    }
+    .about-content p {
+        font-size: 1.05rem;
+        color: var(--dark-navy);
+        line-height: 1.8;
+        margin-bottom: 0;
+    }
+
+    /* ---------- QUALIFICATIONS BAND ---------- */
+    .qualifications-band {
+        background-color: #EAF3FB;
+        padding: 50px 5%;
+        margin-top: 0;
+    }
+    .qualifications-band-inner {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+    .qualifications-band h3 {
+        color: var(--dark-blue);
+        font-size: 1.5rem;
+        margin-bottom: 30px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 700;
+    }
+    .qualifications-band h3 i {
+        color: var(--primary-blue);
+    }
+
+    .qualifications-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+    .qual-card {
+        background: #fff;
+        border-radius: 12px;
+        padding: 22px 24px;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        border: 1px solid #e0ecf5;
+        display: flex;
+        align-items: flex-start;
+        gap: 14px;
+        transition: box-shadow 0.2s ease, transform 0.2s ease;
+        min-height: 100%;
+    }
+    .qual-card:hover {
+        box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+        transform: translateY(-2px);
+    }
+    .qual-card-icon {
+        color: var(--primary-blue);
+        font-size: 1.3rem;
+        flex-shrink: 0;
+        margin-top: 2px;
+    }
+    .qual-card-text strong {
+        display: block;
+        color: var(--dark-navy);
+        font-size: 1rem;
+        line-height: 1.35;
+        margin-bottom: 3px;
+    }
+    .qual-card-text .institution-name {
+        color: #4a6080;
+        font-size: 0.88rem;
+        display: block;
+        line-height: 1.35;
+    }
+
+    /* ---------- MOBILE ---------- */
+    @media (max-width: 768px) {
+        .page-header {
+            padding: 35px 4%;
+        }
+        .page-header h1 {
+            font-size: clamp(1.5rem, 7vw, 2.2rem);
+            text-wrap: balance;
+        }
+        .page-header p {
+            font-size: 0.95rem;
+        }
+
+        .about-section {
+            flex-direction: column;
+            align-items: center;
+            padding: 0 4%;
+            margin: 40px auto;
+            gap: 30px;
+        }
+        .about-image {
+            flex: 0 0 auto;
+            width: 100%;
+            max-width: 280px;
+        }
+        .about-content h2 {
+            font-size: clamp(1.5rem, 7vw, 2rem);
+            text-align: center;
+            white-space: normal;
+        }
+        .about-content p {
+            font-size: 0.95rem;
+        }
+
+        .qualifications-band {
+            padding: 35px 4%;
+        }
+        .qualifications-band h3 {
+            font-size: 1.25rem;
+            margin-bottom: 20px;
+        }
+        .qualifications-grid {
+            grid-template-columns: 1fr;
+            gap: 14px;
+        }
+        .qual-card {
+            padding: 18px 18px;
+        }
+
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <div class="page-header-inner">
+        <h1>About Me</h1>
+        <p>Good treatment, with full attention to every patient.</p>
+    </div>
+</div>
+
+<div class="about-section">
+    <div class="about-image">
+        <img src="{% static 'website/images/2.jpeg' %}" alt="Dr. Muhammad Hassan Tariq">
+    </div>
+
+    <div class="about-content">
+        <h2>Dr. Muhammad Hassan Tariq</h2>
+        <p>
+            I have years of experience treating male reproductive health, children's diseases, and diabetes. Every patient gets my full attention, proper diagnosis, and the right treatment. Everything you share with me stays private.
+        </p>
+    </div>
+</div>
+
+<div class="qualifications-band">
+    <div class="qualifications-band-inner">
+        <h3><i class="fas fa-user-graduate"></i> Qualifications &amp; Certifications</h3>
+        <div class="qualifications-grid">
+            {% for q in qualifications %}
+            <div class="qual-card">
+                <i class="fas fa-check-circle qual-card-icon"></i>
+                <div class="qual-card-text">
+                    <strong>{{ q.degree_title }}</strong>
+                    <span class="institution-name">{{ q.institution }}{% if q.country %}, {{ q.country }}{% endif %}</span>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}
