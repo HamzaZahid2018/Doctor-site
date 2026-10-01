@@ -1,5 +1,4 @@
 {
-    "buildCommand": "python manage.py collectstatic --noinput",
     "builds": [
         {
             "src": "doctor_site/wsgi.py",
