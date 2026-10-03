@@ -11,7 +11,7 @@ class MockClinicInfo:
         self.phone_number = '0339-8770001'
         self.whatsapp_number = '923398770001'
         self.city = 'Rahim Yar Khan'
-        self.timings_weekdays = 'Monday to Sunday: 9:00 AM to 6:00 PM'
+        self.timings_weekdays = 'Monday to Sunday: 10:00 AM to 11:00 PM'
         self.timings_sunday = 'Open 7 days a week'
         self.address = 'Rahim Yar Khan, Punjab, Pakistan'
 

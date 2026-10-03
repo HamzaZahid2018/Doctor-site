@@ -36,7 +36,7 @@ class ClinicInfo(models.Model):
     phone_number = models.CharField(max_length=50, default='0339-8770001')
     whatsapp_number = models.CharField(max_length=50, default='923398770001')
     city = models.CharField(max_length=100, default='Rahim Yar Khan')
-    timings_weekdays = models.CharField(max_length=200, default='Mon–Sat 9:00 AM – 6:00 PM')
+    timings_weekdays = models.CharField(max_length=200, default='Mon–Sat 10:00 AM – 11:00 PM')
     timings_sunday = models.CharField(max_length=200, default='Sunday Closed')
     address = models.TextField(blank=True, null=True)
 
